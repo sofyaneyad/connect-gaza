@@ -13,6 +13,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CreatePostRouteImport } from './routes/create-post'
 import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as MessagesRouteImport } from './routes/messages'
+import { Route as NotificationsRouteImport } from './routes/notifications'
 import { Route as RegisterRouteImport } from './routes/register'
 import { Route as SearchRouteImport } from './routes/search'
 import { Route as VerifyRouteImport } from './routes/verify'
@@ -37,6 +39,16 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MessagesRoute = MessagesRouteImport.update({
+  id: '/messages',
+  path: '/messages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotificationsRoute = NotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
@@ -58,6 +70,8 @@ export interface FileRoutesByFullPath {
   '/create-post': typeof CreatePostRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/verify': typeof VerifyRoute
@@ -67,6 +81,8 @@ export interface FileRoutesByTo {
   '/create-post': typeof CreatePostRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/verify': typeof VerifyRoute
@@ -77,6 +93,8 @@ export interface FileRoutesById {
   '/create-post': typeof CreatePostRoute
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
+  '/messages': typeof MessagesRoute
+  '/notifications': typeof NotificationsRoute
   '/register': typeof RegisterRoute
   '/search': typeof SearchRoute
   '/verify': typeof VerifyRoute
@@ -88,6 +106,8 @@ export interface FileRouteTypes {
     | '/create-post'
     | '/forgot-password'
     | '/login'
+    | '/messages'
+    | '/notifications'
     | '/register'
     | '/search'
     | '/verify'
@@ -97,6 +117,8 @@ export interface FileRouteTypes {
     | '/create-post'
     | '/forgot-password'
     | '/login'
+    | '/messages'
+    | '/notifications'
     | '/register'
     | '/search'
     | '/verify'
@@ -106,6 +128,8 @@ export interface FileRouteTypes {
     | '/create-post'
     | '/forgot-password'
     | '/login'
+    | '/messages'
+    | '/notifications'
     | '/register'
     | '/search'
     | '/verify'
@@ -116,6 +140,8 @@ export interface RootRouteChildren {
   CreatePostRoute: typeof CreatePostRoute
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
+  MessagesRoute: typeof MessagesRoute
+  NotificationsRoute: typeof NotificationsRoute
   RegisterRoute: typeof RegisterRoute
   SearchRoute: typeof SearchRoute
   VerifyRoute: typeof VerifyRoute
@@ -151,6 +177,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/messages': {
+      id: '/messages'
+      path: '/messages'
+      fullPath: '/messages'
+      preLoaderRoute: typeof MessagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notifications': {
+      id: '/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof NotificationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
@@ -180,6 +220,8 @@ const rootRouteChildren: RootRouteChildren = {
   CreatePostRoute: CreatePostRoute,
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
+  MessagesRoute: MessagesRoute,
+  NotificationsRoute: NotificationsRoute,
   RegisterRoute: RegisterRoute,
   SearchRoute: SearchRoute,
   VerifyRoute: VerifyRoute,
