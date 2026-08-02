@@ -119,7 +119,7 @@ function AdminPage() {
               <PieChart>
                 <Pie data={adminStats.byCategory} dataKey="value" nameKey="name" outerRadius={100} label>
                   {adminStats.byCategory.map((_, i) => (
-                    <Cell key={i} fill={COLORS[i % COLORS.length]} />
+                    <Cell key={i} fill={COLORS[i % COLORS.length]!} />
                   ))}
                 </Pie>
                 <Tooltip />
