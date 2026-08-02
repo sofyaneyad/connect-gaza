@@ -81,7 +81,8 @@ function AdminPage() {
             ["categories", "التصنيفات"],
             ["hoods", "الأحياء"],
           ].map(([v, l]) => (
-            <TabsTrigger key={v} value={v} className="rounded-xl text-xs sm:text-sm">
+            <TabsTrigger key={v} value={v!} className="rounded-xl text-xs sm:text-sm">
+
               {l}
             </TabsTrigger>
           ))}
