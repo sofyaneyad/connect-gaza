@@ -222,7 +222,7 @@ export const users: User[] = [
   },
 ];
 
-export const currentUser = users[0];
+export const currentUser: User = users[0]!;
 
 export const posts: Post[] = [
   {
@@ -548,9 +548,9 @@ export const reports = [
 
 // ---- helpers -------------------------------------------------------------
 
-export const getUser = (id: string) => users.find((u) => u.id === id) ?? users[0];
-export const getNeighborhood = (id: string) =>
-  neighborhoods.find((n) => n.id === id) ?? neighborhoods[0];
-export const getCategory = (id: string) => categories.find((c) => c.id === id) ?? categories[0];
+export const getUser = (id: string): User => users.find((u) => u.id === id) ?? users[0]!;
+export const getNeighborhood = (id: string): Neighborhood =>
+  neighborhoods.find((n) => n.id === id) ?? neighborhoods[0]!;
+export const getCategory = (id: string): Category => categories.find((c) => c.id === id) ?? categories[0]!;
 export const getPost = (id: string) => posts.find((p) => p.id === id);
 export const postComments = (postId: string) => comments.filter((c) => c.postId === postId);
